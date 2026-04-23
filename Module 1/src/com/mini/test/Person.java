@@ -11,6 +11,9 @@ public class Person {
         this.email = email;
     }
 
+    public Person() {
+    }
+
     public void setName(String name) {
         this.name = name;
     }
