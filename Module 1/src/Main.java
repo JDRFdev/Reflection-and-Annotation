@@ -1,6 +1,9 @@
+import com.mini.test.Myfield;
 import com.mini.test.Person;
 
+import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
+import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
 public class Main {
@@ -24,13 +27,32 @@ public class Main {
              Field field=Person.class.getDeclaredField("name");
              field.setAccessible(true);
              field.set(p1,"Juan");
+             if (field.isAnnotationPresent(Myfield.class)){
+                 System.out.println(field.getAnnotation(Myfield.class).description());
+             }
              System.out.println(field.get(p1));
-             System.out.println(p1.getName()    );
+             System.out.println(p1.getName());
+             Class<?> c4=Person.class;
+             Constructor<?> constructor=c4.getDeclaredConstructor();
+             Object obj=constructor.newInstance();
+             System.out.println("---------------"+obj);
+             Person per=new Person();
+             Method method=Person.class.getDeclaredMethod("setName", String.class);
+             method.invoke(per,"Juan");
+             Method getter=Person.class.getDeclaredMethod("getName");
+             System.out.println(getter.invoke(per));
+
         } catch (ClassNotFoundException e) {
             throw new RuntimeException(e);
         } catch (NoSuchFieldException e) {
              throw new RuntimeException(e);
          } catch (IllegalAccessException e) {
+             throw new RuntimeException(e);
+         } catch (NoSuchMethodException e) {
+             throw new RuntimeException(e);
+         } catch (InvocationTargetException e) {
+             throw new RuntimeException(e);
+         } catch (InstantiationException e) {
              throw new RuntimeException(e);
          }
     }
