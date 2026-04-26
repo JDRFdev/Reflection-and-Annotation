@@ -1,5 +1,6 @@
 package com.JDRFdev;
 
+@Component_
 public class Restaurant {
     private String name;
     @Inyect
@@ -16,7 +17,9 @@ public class Restaurant {
     public String getName() {
         return name;
     }
-
+    public void serv(){
+        System.out.println("The Chef is cooking with the oven, that meal smells delicious :))");
+    }
     public void setName(String name) {
         this.name = name;
     }

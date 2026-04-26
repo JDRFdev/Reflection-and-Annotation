@@ -43,9 +43,10 @@ public class Container {
         }
         return obj;
     }
-    public Object getObject(Class<?> c){
+    @SuppressWarnings("unchecked")
+    public <T> T getObject(Class<T> c){
 
-        return map.get(c);
+        return (T)map.get(c);
     }
 
 }
