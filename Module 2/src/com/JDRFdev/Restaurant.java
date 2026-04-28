@@ -2,6 +2,7 @@ package com.JDRFdev;
 
 @Component_
 public class Restaurant {
+    @Value("restaurant.name")
     private String name;
     @Inyect
     private Chef chef;

@@ -2,6 +2,7 @@ package com.JDRFdev;
 
 @Component_
 public class Chef {
+    @Value("chef.name")
     private String name;
     @Inyect
     private Oven ovn;
