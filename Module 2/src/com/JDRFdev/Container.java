@@ -15,7 +15,7 @@ public class Container {
     private Properties props= new Properties();
     public Container(Set<Class<?>> cls) {
         try {
-            props.load(new FileInputStream("src/application.properties"));
+            props.load(Container.class.getResourceAsStream("/application.properties"));
             for (Class<?>c:cls){
             if (c.isAnnotationPresent(Component_.class)){
                 Object obj=inyect(c);

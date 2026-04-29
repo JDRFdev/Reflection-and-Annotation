@@ -13,6 +13,7 @@ public class Main {
         r.getChef().setName("Juan");
         r.serv();
         System.out.println(r.getChef().getName());
+        System.out.println(r.getName());
 
     }
 }
